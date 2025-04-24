@@ -11,7 +11,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
         .authorizeRequests()
-                .antMatchers("/index.html","/js/**","/","/css/**","/img/**","/login","/a").permitAll()
+                .antMatchers("/index.html","/js/**","/","/css/**","/img/**","/login","/abc").permitAll()
                 .antMatchers("/mobile/**").hasAuthority("mobile")
                 .antMatchers("/salary/**").hasAuthority("salary")
                 .antMatchers("/common/**").permitAll()
