@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BasicAuth</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!--<link href="css/login.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">-->
+    <script>
+        function login() {
+            if(!$("#userName").val() || !$("#userName").val()){
+                alert("请输入信息");
+                return false;
+            }
+            $.post("/login", {
+                "username": $("#userName").val(),
+                "password": $("#userPass").val()
+            }, function (response) {
+                if(response) {
+                    location.href='main.html';
+                    alert("登录成功");
+                }else{
+                    alert("登录错误");
+                    return false;
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+<div class="login-background" id="login-background">
+    <div class="login-box">
+        <form name="loginForm" role="form">
+            <div class="title">
+                <label><font size="4">请输入登录信息</font></label>
+            </div>
+            <div class="username">
+                <label for="userName"><img src="img/uesname.png" alt=""></label>
+                <input id="userName" name="name" type="text" maxlength="10" placeholder="请输入用户名" autocomplete="off" required>
+
+            </div>
+            <div class="password">
+                <label for="userPass"><img src="img/password.png" alt=""></label>
+                <input type="text" name="password" id="userPass" onfocus="this.type='password'" autocomplete="off" placeholder="请输入密码" required>
+
+            </div>
+            <div class="btn">
+                <a  onclick="login()" >登录</a>
+            </div>
+            <div class="checked-box clearfix">
+                <input id="check" type="checkbox" label for="check">记住我</label>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
